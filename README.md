@@ -15,7 +15,7 @@ A modern Android weather application built with Kotlin, demonstrating MVVM archi
 
 ### Core Features
 - 🌡️ Current weather display with temperature, condition, and details
-- 📅 7-day weather forecast
+- 📅 3-day weather forecast
 - 🏙️ Multiple city management (save, view, delete cities)
 - 🔍 City search functionality
 - 📍 Location-based weather (with permission)
@@ -185,7 +185,7 @@ This implementation is significantly different from typical weather app examples
 
 ### Viewing Weather
 - Current weather displays at the top
-- 7-day forecast shows below
+- 3-day forecast shows below
 - Saved cities list at the bottom
 
 ### Settings
@@ -203,7 +203,7 @@ This implementation is significantly different from typical weather app examples
 
 **WeatherAPI.com** - Free tier includes:
 - Current weather data
-- 7-day forecast
+- 3-day forecast
 - Hourly forecast
 - Weather conditions
 - Astronomy data (sunrise/sunset)

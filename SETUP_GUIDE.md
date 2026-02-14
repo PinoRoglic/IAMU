@@ -78,7 +78,7 @@ When you first run the app:
 
 ### Test Scenarios
 1. **Search for a city**: Try "Paris", "Tokyo", "Sydney"
-2. **View 7-day forecast**: Scroll down to see forecast cards
+2. **View 3-day forecast**: Scroll down to see forecast cards
 3. **Change units**: Go to Settings, switch between Celsius/Fahrenheit
 4. **Refresh weather**: Pull down on the main screen
 5. **Delete a city**: Tap the trash icon on a saved city

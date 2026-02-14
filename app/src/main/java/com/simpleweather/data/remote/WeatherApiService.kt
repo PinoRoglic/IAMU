@@ -11,7 +11,7 @@ interface WeatherApiService {
     suspend fun getWeatherForecast(
         @Query("key") apiKey: String,
         @Query("q") city: String,
-        @Query("days") days: Int = 7,
+        @Query("days") days: Int = 3,
         @Query("aqi") aqi: String = "no",
         @Query("alerts") alerts: String = "no"
     ): Response<WeatherApiResponse>
@@ -27,7 +27,7 @@ interface WeatherApiService {
     suspend fun getWeatherByCoordinates(
         @Query("key") apiKey: String,
         @Query("q") coordinates: String, // Format: "lat,lon"
-        @Query("days") days: Int = 7,
+        @Query("days") days: Int = 3,
         @Query("aqi") aqi: String = "no",
         @Query("alerts") alerts: String = "no"
     ): Response<WeatherApiResponse>

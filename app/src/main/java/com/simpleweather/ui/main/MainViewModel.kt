@@ -152,9 +152,10 @@ class MainViewModel(
 
     private fun loadForecast(cityName: String) {
         viewModelScope.launch {
-            val result = repository.getForecast(cityName, fetchFromRemote = false)
+            val result = repository.getForecast(cityName, fetchFromRemote = true)
 
             result.onSuccess { forecasts ->
+                Log.d(TAG, "Loaded ${forecasts.size} forecast days for $cityName")
                 _forecast.value = forecasts
             }
 

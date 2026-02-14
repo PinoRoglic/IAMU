@@ -123,6 +123,12 @@ class MainActivity : AppCompatActivity() {
                 binding.swipeRefreshLayout.isRefreshing = false
             }
         }
+
+        // Test notification button
+        binding.testNotificationFab.setOnClickListener {
+            showTestNotification()
+            Toast.makeText(this, "Test notification sent!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setupObservers() {
@@ -193,6 +199,41 @@ class MainActivity : AppCompatActivity() {
             }
             .setNegativeButton(R.string.cancel, null)
             .show()
+    }
+
+    private fun showTestNotification() {
+        val currentWeather = viewModel.weatherInfo.value
+        val notificationText = if (currentWeather != null) {
+            "${currentWeather.cityName}: ${currentWeather.getDisplayTemp(viewModel.useCelsius)}, ${currentWeather.condition}"
+        } else {
+            "Simple Weather - Testing notifications!"
+        }
+
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val pendingIntent = android.app.PendingIntent.getActivity(
+            this,
+            0,
+            intent,
+            android.app.PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = androidx.core.app.NotificationCompat.Builder(
+            this,
+            com.simpleweather.SimpleWeatherApp.NOTIFICATION_CHANNEL_ID
+        )
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(getString(R.string.notification_title))
+            .setContentText(notificationText)
+            .setPriority(androidx.core.app.NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+            .build()
+
+        val notificationManager = getSystemService(android.content.Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
+        notificationManager.notify(1001, notification)
     }
 
     private fun getCurrentLocation() {

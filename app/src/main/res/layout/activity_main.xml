@@ -253,4 +253,15 @@
         android:layout_gravity="center"
         android:visibility="gone" />
 
+    <!-- FAB for Testing Notifications -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/testNotificationFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/spacing_medium"
+        android:contentDescription="Test Notification"
+        app:srcCompat="@drawable/ic_notification"
+        app:tint="@color/white" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -47,7 +47,7 @@
         <receiver
             android:name=".receiver.WeatherReceiver"
             android:enabled="true"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.simpleweather.WEATHER_UPDATE" />
             </intent-filter>

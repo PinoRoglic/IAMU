@@ -34,7 +34,7 @@ class WeatherRepositoryImpl(
                 val response = weatherApiService.getWeatherForecast(
                     apiKey = BuildConfig.WEATHER_API_KEY,
                     city = cityName,
-                    days = 7
+                    days = 3
                 )
 
                 if (response.isSuccessful && response.body() != null) {
@@ -46,6 +46,9 @@ class WeatherRepositoryImpl(
 
                     // Save forecast if available
                     apiResponse.forecast?.let { forecast ->
+                        // Delete old forecast data for this city first
+                        forecastDao.delete(weatherEntity.cityId)
+
                         val forecastEntities = forecast.forecastDay.map { day ->
                             ForecastEntity(
                                 cityId = weatherEntity.cityId,
@@ -62,8 +65,10 @@ class WeatherRepositoryImpl(
                                 uv = day.day.uv
                             )
                         }
+                        Log.d(TAG, "Saving ${forecastEntities.size} forecast days for cityId ${weatherEntity.cityId}")
                         forecastDao.insertAll(forecastEntities)
-                    }
+                        Log.d(TAG, "Forecast saved successfully")
+                    } ?: Log.w(TAG, "No forecast data in API response")
 
                     Result.success(mapToWeatherInfo(weatherEntity))
                 } else {
@@ -99,7 +104,7 @@ class WeatherRepositoryImpl(
             val response = weatherApiService.getWeatherByCoordinates(
                 apiKey = BuildConfig.WEATHER_API_KEY,
                 coordinates = "$lat,$lon",
-                days = 7
+                days = 3
             )
 
             if (response.isSuccessful && response.body() != null) {
@@ -140,16 +145,19 @@ class WeatherRepositoryImpl(
 
     override suspend fun getForecast(cityName: String, fetchFromRemote: Boolean): Result<List<DailyForecast>> {
         return try {
+            // Get the cityId from the weather entity (hashCode based)
+            val cityId = cityName.hashCode()
+            Log.d(TAG, "getForecast: Looking for cityId=$cityId (from cityName=$cityName)")
+
+            val forecasts = forecastDao.getForecast(cityId)
+            Log.d(TAG, "getForecast: Found ${forecasts.size} forecasts in DB")
+
             if (fetchFromRemote) {
                 // This is already fetched with getWeather, just return from DB
-                val city = cityDao.getAllCities().find {
-                    it.cityName.equals(cityName, ignoreCase = true)
-                }
-
-                if (city != null) {
-                    val forecasts = forecastDao.getForecast(city.id)
+                if (forecasts.isNotEmpty()) {
                     Result.success(forecasts.map { mapToForecast(it) })
                 } else {
+                    Log.w(TAG, "getForecast: No forecasts found for cityId=$cityId")
                     Result.success(emptyList())
                 }
             } else {

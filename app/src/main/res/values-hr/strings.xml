@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jednostavna Prognoza</string>
+
+    <!-- Main Screen -->
+    <string name="search_city">Pretraži grad…</string>
+    <string name="refresh">Osvježi</string>
+    <string name="settings">Postavke</string>
+    <string name="current_weather">Trenutno Vrijeme</string>
+    <string name="forecast">Prognoza</string>
+    <string name="saved_cities">Spremljeni Gradovi</string>
+    <string name="no_cities">Nema spremljenih gradova</string>
+    <string name="add_city">Dodaj grad za prikaz vremena</string>
+
+    <!-- Weather Details -->
+    <string name="temperature">Temperatura</string>
+    <string name="feels_like">Osjećaj</string>
+    <string name="humidity">Vlažnost</string>
+    <string name="wind">Vjetar</string>
+    <string name="uv_index">UV Indeks</string>
+    <string name="pressure">Tlak</string>
+    <string name="visibility">Vidljivost</string>
+    <string name="sunrise">Izlazak sunca</string>
+    <string name="sunset">Zalazak sunca</string>
+
+    <!-- Days of week -->
+    <string name="monday">Ponedjeljak</string>
+    <string name="tuesday">Utorak</string>
+    <string name="wednesday">Srijeda</string>
+    <string name="thursday">Četvrtak</string>
+    <string name="friday">Petak</string>
+    <string name="saturday">Subota</string>
+    <string name="sunday">Nedjelja</string>
+
+    <!-- Settings -->
+    <string name="temperature_unit">Jedinica Temperature</string>
+    <string name="wind_speed_unit">Jedinica Brzine Vjetra</string>
+    <string name="auto_update">Automatsko Ažuriranje</string>
+    <string name="auto_update_summary">Automatski ažuriraj vremensku prognozu</string>
+    <string name="update_interval">Interval Ažuriranja</string>
+    <string name="notifications">Obavijesti</string>
+    <string name="notifications_summary">Prikaži obavijesti o vremenu</string>
+    <string name="location_permission">Dozvola za Lokaciju</string>
+    <string name="location_permission_summary">Omogući aplikaciji pristup vašoj lokaciji</string>
+
+    <!-- Dialogs -->
+    <string name="add_city_title">Dodaj Grad</string>
+    <string name="city_name">Ime grada</string>
+    <string name="add">Dodaj</string>
+    <string name="cancel">Odustani</string>
+    <string name="delete">Obriši</string>
+    <string name="delete_city_title">Obriši Grad</string>
+    <string name="delete_city_message">Jeste li sigurni da želite obrisati ovaj grad?</string>
+
+    <!-- Messages -->
+    <string name="loading">Učitavanje…</string>
+    <string name="error_loading">Greška pri učitavanju podataka</string>
+    <string name="error_network">Nema internetske veze</string>
+    <string name="error_location">Ne mogu dobiti lokaciju</string>
+    <string name="city_added">Grad uspješno dodan</string>
+    <string name="city_deleted">Grad obrisan</string>
+    <string name="city_not_found">Grad nije pronađen</string>
+    <string name="permission_denied">Dozvola za lokaciju odbijena</string>
+    <string name="retry">Pokušaj ponovno</string>
+
+    <!-- Permissions -->
+    <string name="permission_location_rationale">Dozvola za lokaciju je potrebna za prikaz vremena na vašoj trenutnoj lokaciji</string>
+    <string name="permission_notification_rationale">Dozvola za obavijesti je potrebna za prikaz vremenskih obavijesti</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_name">Vremenske Obavijesti</string>
+    <string name="notification_channel_description">Obavijesti o vremenskim prilikama</string>
+    <string name="notification_title">Ažuriranje Vremena</string>
+    <string name="notification_text">%1$s: %2$s°, %3$s</string>
+
+    <!-- Content Descriptions -->
+    <string name="weather_icon">Ikona vremena</string>
+    <string name="search_icon">Pretraživanje</string>
+    <string name="settings_icon">Postavke</string>
+    <string name="delete_icon">Obriši</string>
+</resources>

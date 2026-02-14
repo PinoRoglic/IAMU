@@ -23,6 +23,15 @@
     <string name="sunrise">Izlazak sunca</string>
     <string name="sunset">Zalazak sunca</string>
 
+    <!-- Units -->
+    <string name="celsius">°C</string>
+    <string name="fahrenheit">°F</string>
+    <string name="kmh">km/h</string>
+    <string name="mph">mph</string>
+    <string name="hpa">hPa</string>
+    <string name="km">km</string>
+    <string name="percent">%</string>
+
     <!-- Days of week -->
     <string name="monday">Ponedjeljak</string>
     <string name="tuesday">Utorak</string>

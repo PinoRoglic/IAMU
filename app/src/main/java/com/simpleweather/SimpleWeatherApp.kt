@@ -60,7 +60,7 @@ class SimpleWeatherApp : Application() {
             .build()
 
         val weatherSyncRequest = PeriodicWorkRequestBuilder<WeatherSyncWorker>(
-            3, TimeUnit.HOURS
+            1, TimeUnit.MINUTES
         )
             .setConstraints(constraints)
             .build()

@@ -46,6 +46,9 @@ class MainViewModel(
     val useKph: Boolean
         get() = preferencesManager.useKph
 
+    val notificationsEnabled: Boolean
+        get() = preferencesManager.notificationsEnabled
+
     init {
         loadSavedCities()
     }

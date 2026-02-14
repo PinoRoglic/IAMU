@@ -202,6 +202,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showTestNotification() {
+        // Check if notifications are enabled in settings
+        if (!viewModel.notificationsEnabled) {
+            Toast.makeText(this, "Notifications are disabled in settings", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val currentWeather = viewModel.weatherInfo.value
         val notificationText = if (currentWeather != null) {
             "${currentWeather.cityName}: ${currentWeather.getDisplayTemp(viewModel.useCelsius)}, ${currentWeather.condition}"

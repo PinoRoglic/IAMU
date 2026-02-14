@@ -34,6 +34,13 @@ class WeatherReceiver : BroadcastReceiver() {
     }
 
     private fun showTestNotification(context: Context) {
+        // Check if notifications are enabled in settings
+        val preferencesManager = com.simpleweather.utils.PreferencesManager(context)
+        if (!preferencesManager.notificationsEnabled) {
+            Log.d(TAG, "Notifications are disabled in settings, skipping notification")
+            return
+        }
+
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
